@@ -1,22 +1,17 @@
 query {
-  info {
+  info (id: "6I7OG34TofL2IM1OWBW3aK") {
     name
     nouns
     greeting
     role
   }
-  works {
-    title
-    description
-    gallery {
-      fields {
-        file {
-          url
-        }
-      }
+  workCollection {
+    items {
+      title
+      description
+      link
+      order
+      label
     }
-    link
-    order
-    label
   }
 }

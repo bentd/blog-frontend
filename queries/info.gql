@@ -1,5 +1,5 @@
 query {
-  info {
+  info (id: "6I7OG34TofL2IM1OWBW3aK") {
     name
     nouns
     greeting

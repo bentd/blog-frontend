@@ -14,7 +14,7 @@ export default function About({ info }) {
 }
 
 
-export async function getStaticProps(context) {
+export async function getInitialProps(context) {
   return await client
     .query({ query: query })
     .then(result => ({ props: { fetched: true, info: result.data.info }}));

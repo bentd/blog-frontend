@@ -5,10 +5,10 @@ import Terminal from "../components/terminal";
 import Work from "../components/work";
 
 
-export default function Index({ info, works }) {
+export default function Index({ works, info }) {
   return (
     <Layout info={ info } index={ 0 }>
-    <Terminal nouns={ info.nouns } />
+    <Terminal nouns={ [] } />
       {works.map((work, index) =>
         <Work work={ work } index={ index } />
       )}
@@ -17,8 +17,12 @@ export default function Index({ info, works }) {
 }
 
 
-export async function getStaticProps(context) {
+export async function getInitialProps(context) {
   return await client
     .query({ query: query })
-    .then(result => ({ props: { fetched: true, works: result.data.works, info: result.data.info }}));
+    .then(result => {
+      console.log(result);
+      console.log("getInitialProps");
+      return { props: { fetched: true, works: result.data.works, info: result.data.info }};
+    });
 }

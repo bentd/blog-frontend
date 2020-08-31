@@ -10,7 +10,8 @@ dotenv.config();
 const cache = new InMemoryCache();
 const link = new HttpLink({
   uri: process.env.ENDPOINT,
-  fetch: fetch
+  fetch: fetch,
+  headers: { authorization: `Bearer ${process.env.TOKEN}` },
 });
 
 export const client = new ApolloClient({
